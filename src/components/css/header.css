@@ -1,0 +1,41 @@
+.online-coding-header {
+    background-color: var(--websiteBackground);
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .logo h1 {
+    margin: 0;
+  }
+  
+  .nav-bar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .nav-bar a:hover {
+    text-decoration: underline;
+  }
+  
+
+  @media (max-width: 768px) {
+  
+    .logo h1 {
+      font-size: 30px;
+    }
+    .nav-bar {
+     display: flex;
+     flex-direction: column;
+     font-size: 10px;
+     margin: 2px;
+     font-weight: 500;
+    }
+    .online-coding-header {
+    max-width: 100vw;
+    }
+}
