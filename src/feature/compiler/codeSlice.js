@@ -3,7 +3,7 @@ import axios from 'axios'
 import { compile } from './api';
 
 const defaultCodes = {
-    'c': '#include<stdio.h>\n\nint main()\n{\n    printf("Hello World!");\n  return 0;\n}',
+    'c': '#include<stdio.h>\n\nint main()\n{\n    printf("Hello, World!");\n  return 0;\n}',
     'cpp': '#include <iostream>\nusing namespace std;\n\nint main()\n{\n    cout << "Hello, World!" << endl;\n    return 0;\n}',
     'rust': 'fn main() {\n    println!("Hello, World!");\n}',
     'python3': 'print("Hello, World!")',
@@ -57,9 +57,10 @@ export const runCode = createAsyncThunk('running', async (args, thunkAPI) => {
     try {
         const currentState = thunkAPI.getState();
         const lang =currentState.codeReducer.lang;
-        const response= await axios.request(compile(lang,currentState.codeReducer.code));
-        const output = await axios.get(`https://codejudge.geeksforgeeks.org/get-status/${response.data.id}`);
-        console.log(output)
+        const code =currentState.codeReducer.code;
+        if(code===defaultCodes[lang]) return 'Hello, World!';
+        const response= await axios.request(compile(lang,code));
+      
         return response.data.output;
     } catch (error) {
         throw error;

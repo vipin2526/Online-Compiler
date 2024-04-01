@@ -1,6 +1,7 @@
 {
   "name": "online-compiler",
   "version": "0.1.0",
+  "homepage": "https://vipin2526.github.io/Online-Compiler",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
@@ -19,6 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -38,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
