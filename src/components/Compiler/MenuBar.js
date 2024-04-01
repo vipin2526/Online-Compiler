@@ -1,11 +1,13 @@
 import React from 'react'
 import { runCode, clearEditor, setLang } from '../../feature/compiler/codeSlice';
 import { useDispatch,useSelector } from 'react-redux'
+import '../css/extra.css'
 
 
 function MenuBar() {
   const dispatch = useDispatch();
   const code = useSelector(state=>state.codeReducer.code);
+  const apiStatus = useSelector(state => state.codeReducer.status);
   const handleChange = (event) => {
     dispatch(setLang(event.target.value));
   };
@@ -18,6 +20,7 @@ function MenuBar() {
   }
   return (
     <div className='container-fluid menuBar'>
+     {apiStatus === 'loading' && (<img id='apiLoder' src="loding2.gif" alt="Not Found" />)}
       <div className="row h-100 menuRow">
         <div className="col-6 menuLeftBtn"> Language 
           <select id="language" className='rounded m-lg-2' defaultValue={'c'} onChange={handleChange}>

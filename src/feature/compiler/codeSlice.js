@@ -10,7 +10,7 @@ const defaultCodes = {
     'java': 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}'
 };
 
-const initialState ={
+const initialState = {
     code: defaultCodes['c'],
     output: '',
     status: 'idle',
@@ -25,7 +25,7 @@ const codeSlice = createSlice({
             state.code = action.payload;
         },
         clearEditor: (state) => {
-            state.code =defaultCodes[state.lang] || '';
+            state.code = defaultCodes[state.lang] || '';
         },
         clearConsole: (state) => {
             state.output = '';
@@ -52,20 +52,23 @@ const codeSlice = createSlice({
     }
 })
 
-
 export const runCode = createAsyncThunk('running', async (args, thunkAPI) => {
     try {
         const currentState = thunkAPI.getState();
-        const lang =currentState.codeReducer.lang;
-        const code =currentState.codeReducer.code;
-        if(code===defaultCodes[lang]) return 'Hello, World!';
-        const response= await axios.request(compile(lang,code));
-      
-        return response.data.output;
+        const lang = currentState.codeReducer.lang;
+        const code = currentState.codeReducer.code;
+        if (code === defaultCodes[lang]) {
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1000 milliseconds
+            return 'Hello, World!';
+        } else {
+            const response = await axios.request(compile(lang, code));
+            return response.data.output;
+        }
     } catch (error) {
         throw error;
     }
-})
+});
+
 
 
 export const { setCode, clearEditor, clearConsole, setLang } = codeSlice.actions;

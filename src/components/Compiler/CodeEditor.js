@@ -28,6 +28,7 @@ const CodeEditor = () => {
           className="code-input col"
           value={code}
           onChange={handleChange}
+          spellCheck={false}
         />
       </div></div>
   );
