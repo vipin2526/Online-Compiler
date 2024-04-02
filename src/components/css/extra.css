@@ -2,8 +2,16 @@
     position: fixed;
     z-index: 11;
     background-color: none;
-    height: 40rem;
+    height: 30rem;
     left: 50%;
-    top: 50%; 
-    transform: translate(-50%, -50%); 
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+@media (max-width: 768px) {
+    #apiLoder {
+        height: 20rem;
+    }
 }

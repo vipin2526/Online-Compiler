@@ -34,12 +34,12 @@
 }
 
 .menuLeftBtn {
-    font-size: x-large;
+    font-size: max(1.7vw,2.5vh);
     font-weight: 600;
 }
 
 .menuBtn {
-    font-size: x-large;
+    font-size: min(1.5vw,2.5vh);
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
@@ -47,8 +47,8 @@
 }
 
 .menuBtn>img {
-    padding-left: 10px;
-    height: 25px;
+    margin-left: 5px;
+    height:  min(1.5vw,2.5vh);
 }
 
 .menuBtn:hover {
@@ -59,7 +59,6 @@
 
     .menuLeftBtn {
         font-size: small;
-        width: 100px !important;
     }
 
     .menuBtn>img {
