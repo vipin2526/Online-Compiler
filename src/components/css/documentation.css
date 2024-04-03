@@ -1,0 +1,19 @@
+#Documentation {
+    background-color: var(--websiteBackground);
+    padding: 15vw;
+    padding-top: 100px;
+    color: white;
+
+
+    H1,
+    H2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 800px) {
+    #Documentation {
+        padding: 10px;
+        padding-top: 30px;
+    }
+}

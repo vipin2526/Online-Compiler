@@ -14,7 +14,9 @@ const initialState = {
     code: defaultCodes['c'],
     output: '',
     status: 'idle',
-    lang: 'c'
+    lang: 'c',
+    cputime: '0.00',
+    memory: '0'
 }
 
 const codeSlice = createSlice({
@@ -35,6 +37,10 @@ const codeSlice = createSlice({
             state.lang = action.payload;
             state.code = defaultCodes[state.lang] || '';
         },
+        setTimeMemory: (state, action) => {
+            state.cputime = action.payload[0];
+            state.memory = action.payload[1];
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -59,10 +65,13 @@ export const runCode = createAsyncThunk('running', async (args, thunkAPI) => {
         const code = currentState.codeReducer.code;
         if (code === defaultCodes[lang]) {
             await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1000 milliseconds
+            thunkAPI.dispatch(setTimeMemory([0.002, 1673]));
             return 'Hello, World!';
         } else {
             const response = await axios.request(compile(lang, code));
-            return response.data.output;
+            const data = response.data;
+            thunkAPI.dispatch(setTimeMemory([data.cpuTime, data.memory]));
+            return data.output;
         }
     } catch (error) {
         throw error;
@@ -71,6 +80,6 @@ export const runCode = createAsyncThunk('running', async (args, thunkAPI) => {
 
 
 
-export const { setCode, clearEditor, clearConsole, setLang } = codeSlice.actions;
+export const { setCode, clearEditor, clearConsole, setLang, setTimeMemory } = codeSlice.actions;
 
 export default codeSlice.reducer;

@@ -3,6 +3,8 @@ import './components/css/homePage.css'
 import Header from './components/Header';
 // import Footer from './components/Footer';
 import Compiler from './components/Compiler/Compiler'
+import Documentation from './components/Documentation';
+
 
 
 function App() {
@@ -10,7 +12,7 @@ function App() {
     <div className='mainPage'>
       <Header />
       <Compiler />
-      {/* <Footer /> */}
+      <Documentation />
     </div>
   );
 }

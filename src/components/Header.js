@@ -8,10 +8,7 @@ const Header = () => {
         <h1>CodeRunner</h1>
       </div>
       <nav className="nav-bar">
-        <a href="#editor">Code Editor</a>
-        <a href="#compiler">Compiler</a>
-        <a href="#documentation">Documentation</a>
-        {/* Add more navigation links as needed */}
+        <a href="#Documentation">Documentation</a>
       </nav>
     </header>
   );

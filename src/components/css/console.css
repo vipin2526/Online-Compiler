@@ -1,12 +1,24 @@
 .consoleMenuBar {
     height: 50px;
-    /* background-color: rgb(95, 95, 95); */
+    background-color: rgb(95, 95, 95);
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
 }
-.consoleMenuBar >.menuBtn{
-padding-right: 10px;
+
+.consoleMenuBar>.menuBtn {
+    padding-right: 10px;
+    margin-left: auto;
 }
-.consoleTop{
-color: white;
+
+.consoleTop {
+    color: white;
+}
+
+.datapoint {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cputime{
+    margin-right: 10px;
 }
