@@ -33,7 +33,7 @@ Online Compiler is a web-based platform that allows users to compile and execute
 
 ## Installation
 
-Online Compiler is a web-based platform and does not require any installation. Simply visit the website [Online Compiler]([https://www.onlinecompiler.io/](https://vipin2526.github.io/Online-Compiler)) to start using it.
+Online Compiler is a web-based platform and does not require any installation. Simply visit the website [Online Compiler](https://vipin2526.github.io/Online-Compiler) to start using it.
 
 ## Contributions
 
